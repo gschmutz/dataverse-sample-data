@@ -6,6 +6,11 @@ import time
 import requests
 from io import StringIO
 base_url = dvconfig.base_url
+try:
+    base_url=os.environ['DATAVERSE_URL']
+    print("Using URL from $DATAVERSE_URL.")
+except:
+    print("Using URL from config file.")
 api_token = dvconfig.api_token
 try:
     api_token=os.environ['API_TOKEN']
